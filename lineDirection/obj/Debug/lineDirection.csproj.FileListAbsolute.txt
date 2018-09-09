@@ -13,3 +13,17 @@ C:\Users\jeffm\Documents\Visual Studio 2017\Projects\lineDirection\lineDirection
 C:\Users\jeffm\Documents\Visual Studio 2017\Projects\lineDirection\lineDirection\obj\Debug\lineDirection.pdb
 C:\Users\jeffm\Documents\Visual Studio 2017\Projects\lineDirection\lineDirection\obj\Debug\LineDirectionMainView.g.cs
 C:\Users\jeffm\Documents\Visual Studio 2017\Projects\lineDirection\lineDirection\obj\Debug\LineDirectionMainView.baml
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\bin\Debug\lineDirection.exe.config
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\bin\Debug\lineDirection.exe
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\bin\Debug\lineDirection.pdb
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\LineDirectionMainView.g.cs
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\App.g.cs
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection_MarkupCompile.cache
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection_MarkupCompile.lref
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\LineDirectionMainView.baml
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.g.resources
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.Properties.Resources.resources
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.csproj.GenerateResource.cache
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.csproj.CoreCompileInputs.cache
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.exe
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.pdb
