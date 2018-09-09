@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Forms;
@@ -100,8 +101,7 @@ namespace LineVector.ViewModel
             {
                 var saveFileDialog = new SaveFileDialog
                 {
-                    Title = "Save File As", 
-                    //FileName = this.currentMastercamPartFile,
+                    Title = "Save File As",
                     DefaultExt = ".csv",
                     AddExtension = true,
                     Filter = "Comma-separated values file|*.csv|Text file|*.txt"
@@ -111,7 +111,7 @@ namespace LineVector.ViewModel
                 if (result == DialogResult.OK)
                 {
                     string writtenFile = this.lineDirectionService.WriteCSV(saveFileDialog.FileName);
-                    MessageBox.Show($"File written{Environment.NewLine}{writtenFile}", "File Written", 
+                    MessageBox.Show($"File written{Environment.NewLine}{writtenFile}", "File Written",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.mainView?.Close();
                 }
