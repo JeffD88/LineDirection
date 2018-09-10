@@ -157,17 +157,24 @@ namespace LineDirection.Services
             var Lines = new List<Line>();
             var currentLine = "";
 
-            using (var file = new StreamReader(selectedFile))
+            try
             {
-                while ((currentLine = file.ReadLine()) != null)
+                using (var file = new StreamReader(selectedFile))
                 {
-                    var lineData = Array.ConvertAll(currentLine.Split(','), Double.Parse);
-                    Lines.Add(new Line(lineData[0], lineData[1], lineData[2],
-                                       lineData[3], lineData[4], lineData[5]));
+                    while ((currentLine = file.ReadLine()) != null)
+                    {
+                        var lineData = Array.ConvertAll(currentLine.Split(','), Double.Parse);
+                        Lines.Add(new Line(lineData[0], lineData[1], lineData[2],
+                                           lineData[3], lineData[4], lineData[5]));
+                    }
                 }
-            }
 
-            return Lines;
+                return Lines;
+            }
+            catch (IOException)
+            {
+                throw new IOException("Selected file could not be parsed.");
+            }
         }
 
         private EulerAngles CaculateEulerAngles(Vector3D zVector)
