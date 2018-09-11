@@ -22,7 +22,7 @@ namespace LineVector.ViewModel
 
         private readonly Window mainView;
 
-        private string selectedFile = "";
+        private string selectedFile;
 
         private int outputTypeIndex;
 
@@ -84,8 +84,8 @@ namespace LineVector.ViewModel
         {
             var fileBrowser = new OpenFileDialog
             {
-                Title = "Select CSV file",
-                Filter = "Comma-separated values file|*.csv"
+                Title = $"{Resource.FileBrowserTitle}",
+                Filter = $"{Resource.FileBrowserFilter}"
             };
             DialogResult result = fileBrowser.ShowDialog();
             if (result == DialogResult.OK)
@@ -103,30 +103,30 @@ namespace LineVector.ViewModel
                 {
                     var saveFileDialog = new SaveFileDialog
                     {
-                        Title = "Save File As",
-                        DefaultExt = ".csv",
+                        Title = $"{Resource.SaveFileTitle}",
+                        DefaultExt = $"{Resource.SaveFileDefaultExt}",
                         AddExtension = true,
-                        Filter = "Comma-separated values file|*.csv|Text file|*.txt"
+                        Filter = $"{Resource.SaveFileFilter}"
                     };
 
                     DialogResult result = saveFileDialog.ShowDialog();
                     if (result == DialogResult.OK)
                     {
                         string writtenFile = this.lineDirectionService.WriteCSV(saveFileDialog.FileName);
-                        MessageBox.Show($"File written{Environment.NewLine}{writtenFile}", "File Written",
+                        MessageBox.Show($"{Resource.FileWrittenMessage}{Environment.NewLine}{writtenFile}", $"{Resource.FileWrittenTitle}",
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.mainView?.Close();
                     }
                 }
                 else
                 {
-                    MessageBox.Show($"No lines found in file.", "No Lines Found",
+                    MessageBox.Show($"{Resource.NoLinesFoundMessage}", $"{Resource.NoLinesfoundTitle}",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show($"Please select a file.", "No File Selected",
+                MessageBox.Show($"{Resource.NoFileSelectedTitle}", $"{Resource.NoFileSelectedMessage}",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -117,6 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FileBrowserFilter" xml:space="preserve">
+    <value>Comma-separated values file|*.csv</value>
+  </data>
+  <data name="FileBrowserTitle" xml:space="preserve">
+    <value>Select CSV file</value>
+  </data>
+  <data name="FileWrittenMessage" xml:space="preserve">
+    <value>File written</value>
+  </data>
+  <data name="FileWrittenTitle" xml:space="preserve">
+    <value>File Written</value>
+  </data>
+  <data name="NoFileSelectedMessage" xml:space="preserve">
+    <value>Please select a file</value>
+  </data>
+  <data name="NoFileSelectedTitle" xml:space="preserve">
+    <value>No File Selected</value>
+  </data>
+  <data name="NoLinesFoundMessage" xml:space="preserve">
+    <value>No lines found in file.</value>
+  </data>
+  <data name="NoLinesfoundTitle" xml:space="preserve">
+    <value>No Lines Found</value>
+  </data>
+  <data name="SaveFileDefaultExt" xml:space="preserve">
+    <value>.csv</value>
+  </data>
+  <data name="SaveFileFilter" xml:space="preserve">
+    <value>Comma-separated values file|*.csv|Text file|*.txt</value>
+  </data>
+  <data name="SaveFileTitle" xml:space="preserve">
+    <value>Save File As</value>
+  </data>
   <data name="SelectedFileText" xml:space="preserve">
     <value>Select File</value>
   </data>

@@ -61,6 +61,105 @@ namespace lineDirection.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comma-separated values file|*.csv.
+        /// </summary>
+        internal static string FileBrowserFilter {
+            get {
+                return ResourceManager.GetString("FileBrowserFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select CSV file.
+        /// </summary>
+        internal static string FileBrowserTitle {
+            get {
+                return ResourceManager.GetString("FileBrowserTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File written.
+        /// </summary>
+        internal static string FileWrittenMessage {
+            get {
+                return ResourceManager.GetString("FileWrittenMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Written.
+        /// </summary>
+        internal static string FileWrittenTitle {
+            get {
+                return ResourceManager.GetString("FileWrittenTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a file.
+        /// </summary>
+        internal static string NoFileSelectedMessage {
+            get {
+                return ResourceManager.GetString("NoFileSelectedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No File Selected.
+        /// </summary>
+        internal static string NoFileSelectedTitle {
+            get {
+                return ResourceManager.GetString("NoFileSelectedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No lines found in file..
+        /// </summary>
+        internal static string NoLinesFoundMessage {
+            get {
+                return ResourceManager.GetString("NoLinesFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Lines Found.
+        /// </summary>
+        internal static string NoLinesfoundTitle {
+            get {
+                return ResourceManager.GetString("NoLinesfoundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .csv.
+        /// </summary>
+        internal static string SaveFileDefaultExt {
+            get {
+                return ResourceManager.GetString("SaveFileDefaultExt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comma-separated values file|*.csv|Text file|*.txt.
+        /// </summary>
+        internal static string SaveFileFilter {
+            get {
+                return ResourceManager.GetString("SaveFileFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save File As.
+        /// </summary>
+        internal static string SaveFileTitle {
+            get {
+                return ResourceManager.GetString("SaveFileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select File.
         /// </summary>
         internal static string SelectedFileText {
