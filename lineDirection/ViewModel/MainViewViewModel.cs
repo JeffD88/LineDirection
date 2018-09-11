@@ -61,7 +61,7 @@ namespace LineVector.ViewModel
             set
             {
                 this.selectedFile = value;
-                this.OnPropertyChanged(nameof(this.selectedFile));
+                this.OnPropertyChanged(nameof(this.SelectedFile));
             }
         }
 
@@ -72,7 +72,7 @@ namespace LineVector.ViewModel
             set
             {
                 this.outputTypeIndex = value;
-                this.OnPropertyChanged(nameof(this.outputTypeIndex));
+                this.OnPropertyChanged(nameof(this.OutputTypeIndex));
             }
         }
 
