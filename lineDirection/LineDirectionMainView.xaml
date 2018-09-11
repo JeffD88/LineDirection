@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lineDirection"
         mc:Ignorable="d"
-        Title="Line Direction" Height="200" Width="300" ResizeMode="CanMinimize">
+        Title="Line Direction" Height="200" Width="300" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>

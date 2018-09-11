@@ -27,3 +27,5 @@ C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirect
 C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.csproj.CoreCompileInputs.cache
 C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.exe
 C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.pdb
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.csprojAssemblyReference.cache
+C:\Users\jeffm\Documents\GitHub\LineDirection\lineDirection\obj\Debug\lineDirection.Resources.Resource.resources

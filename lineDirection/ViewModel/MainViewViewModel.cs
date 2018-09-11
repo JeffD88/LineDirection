@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
-
+using lineDirection.Resources;
 using LineDirection.Commands;
 using LineDirection.Services;
 
@@ -38,7 +38,7 @@ namespace LineVector.ViewModel
             this.SelectFileCommand = new DelegateCommand(this.OnSelectFileCommand);
             this.OkCommand = new DelegateCommand(this.OnOkCommand);
 
-            this.selectedFile = "Select File";
+            this.selectedFile = Resource.SelectedFileText;
             this.outputTypeIndex = 0;
         }
 
@@ -96,29 +96,37 @@ namespace LineVector.ViewModel
 
         private void OnOkCommand(object parameter)
         {
-            bool linesFound = this.lineDirectionService.ProcessLinesInFile(selectedFile, (OutputType)this.OutputTypeIndex);
-            if (linesFound)
+            if (selectedFile != Resource.SelectedFileText)
             {
-                var saveFileDialog = new SaveFileDialog
+                bool linesFound = this.lineDirectionService.ProcessLinesInFile(selectedFile, (OutputType)this.OutputTypeIndex);
+                if (linesFound)
                 {
-                    Title = "Save File As",
-                    DefaultExt = ".csv",
-                    AddExtension = true,
-                    Filter = "Comma-separated values file|*.csv|Text file|*.txt"
-                };
+                    var saveFileDialog = new SaveFileDialog
+                    {
+                        Title = "Save File As",
+                        DefaultExt = ".csv",
+                        AddExtension = true,
+                        Filter = "Comma-separated values file|*.csv|Text file|*.txt"
+                    };
 
-                DialogResult result = saveFileDialog.ShowDialog();
-                if (result == DialogResult.OK)
+                    DialogResult result = saveFileDialog.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        string writtenFile = this.lineDirectionService.WriteCSV(saveFileDialog.FileName);
+                        MessageBox.Show($"File written{Environment.NewLine}{writtenFile}", "File Written",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.mainView?.Close();
+                    }
+                }
+                else
                 {
-                    string writtenFile = this.lineDirectionService.WriteCSV(saveFileDialog.FileName);
-                    MessageBox.Show($"File written{Environment.NewLine}{writtenFile}", "File Written",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.mainView?.Close();
+                    MessageBox.Show($"No lines found in file.", "No Lines Found",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show($"No lines found in file.", "No Lines Found",
+                MessageBox.Show($"Please select a file.", "No File Selected",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
