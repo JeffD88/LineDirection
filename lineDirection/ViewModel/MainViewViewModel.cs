@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media;
 using lineDirection.Resources;
 using LineDirection.Commands;
 using LineDirection.Services;
@@ -26,6 +27,14 @@ namespace LineVector.ViewModel
 
         private int outputTypeIndex;
 
+        private Brush validationBrush;
+
+        private SolidColorBrush errorBrush = new SolidColorBrush(Color.FromRgb(153, 0, 0));
+
+        private SolidColorBrush okBrush = new SolidColorBrush(Color.FromRgb(0, 153, 0));
+
+        private bool okEnabled;
+
         #endregion
 
         #region Constructor
@@ -40,6 +49,8 @@ namespace LineVector.ViewModel
 
             this.selectedFile = Resource.SelectedFileText;
             this.outputTypeIndex = 0;
+            this.ValidationBrush = this.errorBrush;
+            this.okEnabled = false;
         }
 
         #endregion
@@ -76,6 +87,28 @@ namespace LineVector.ViewModel
             }
         }
 
+        public Brush ValidationBrush
+        {
+            get => this.validationBrush;
+
+            set
+            {
+                this.validationBrush = value;
+                this.OnPropertyChanged(nameof(this.ValidationBrush));
+            }
+        }
+
+        public bool OkEnabled
+        {
+            get => this.okEnabled;
+
+            set
+            {
+                this.okEnabled = value;
+                this.OnPropertyChanged(nameof(this.OkEnabled));
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -91,42 +124,37 @@ namespace LineVector.ViewModel
             if (result == DialogResult.OK)
             {
                 SelectedFile = fileBrowser.FileName;
+                this.ValidationBrush = this.okBrush;
+                this.OkEnabled = true;
+                
             }
         }
 
         private void OnOkCommand(object parameter)
         {
-            if (selectedFile != Resource.SelectedFileText)
+            bool linesFound = this.lineDirectionService.ProcessLinesInFile(selectedFile, (OutputType)this.OutputTypeIndex);
+            if (linesFound)
             {
-                bool linesFound = this.lineDirectionService.ProcessLinesInFile(selectedFile, (OutputType)this.OutputTypeIndex);
-                if (linesFound)
+                var saveFileDialog = new SaveFileDialog
                 {
-                    var saveFileDialog = new SaveFileDialog
-                    {
-                        Title = $"{Resource.SaveFileTitle}",
-                        DefaultExt = $"{Resource.SaveFileDefaultExt}",
-                        AddExtension = true,
-                        Filter = $"{Resource.SaveFileFilter}"
-                    };
+                    Title = $"{Resource.SaveFileTitle}",
+                    DefaultExt = $"{Resource.SaveFileDefaultExt}",
+                    AddExtension = true,
+                    Filter = $"{Resource.SaveFileFilter}"
+                };
 
-                    DialogResult result = saveFileDialog.ShowDialog();
-                    if (result == DialogResult.OK)
-                    {
-                        string writtenFile = this.lineDirectionService.WriteCSV(saveFileDialog.FileName);
-                        MessageBox.Show($"{Resource.FileWrittenMessage}{Environment.NewLine}{writtenFile}", $"{Resource.FileWrittenTitle}",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.mainView?.Close();
-                    }
-                }
-                else
+                DialogResult result = saveFileDialog.ShowDialog();
+                if (result == DialogResult.OK)
                 {
-                    MessageBox.Show($"{Resource.NoLinesFoundMessage}", $"{Resource.NoLinesfoundTitle}",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string writtenFile = this.lineDirectionService.WriteCSV(saveFileDialog.FileName);
+                    MessageBox.Show($"{Resource.FileWrittenMessage}{Environment.NewLine}{writtenFile}", $"{Resource.FileWrittenTitle}",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.mainView?.Close();
                 }
             }
             else
             {
-                MessageBox.Show($"{Resource.NoFileSelectedTitle}", $"{Resource.NoFileSelectedMessage}",
+                MessageBox.Show($"{Resource.NoLinesFoundMessage}", $"{Resource.NoLinesfoundTitle}",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

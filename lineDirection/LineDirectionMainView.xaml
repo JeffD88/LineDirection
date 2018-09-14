@@ -28,6 +28,7 @@
                 Margin="0 0 0 0"
                 Height="25"
                 TabIndex="1"
+                BorderBrush="{Binding ValidationBrush}"
                 Content="{Binding SelectedFile}"
                 Command="{Binding SelectFileCommand}"/>
         <Label x:Name="OutputTypeLabel"
@@ -54,6 +55,7 @@
                 Height="25"
                 Width="75"
                 IsDefault="True"
+                IsEnabled="{Binding OkEnabled}"
                 Content="Ok"
                 Command="{Binding OkCommand}"/>
     </Grid>

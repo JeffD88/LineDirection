@@ -101,7 +101,6 @@ namespace LineDirection.Services
             {
                 foreach (var line in lines)
                 {
-
                     var startPoint = new Vector3D(line.StartPointX, line.StartPointY, line.StartPointZ);
                     var endPoint = new Vector3D(line.EndPointX, line.EndPointY, line.EndPointZ);
 
